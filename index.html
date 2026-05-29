@@ -1,21 +1,19 @@
-#   
-  
-<!DOCTYPE html>  
-<html lang="zh-CN">  
-<body>  
-<script>  
-function getBJTime(){  
-  const t = new Date();  
-  const bj = new Date(t.toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'}));  
-  return bj.getFullYear()+"-"+  
-         String(bj.getMonth()+1).padStart(2,'0')+"-"+  
-         String(bj.getDate()).padStart(2,'0')+" "+  
-         String(bj.getHours()).padStart(2,'0')+":"+  
-         String(bj.getMinutes()).padStart(2,'0')+":"+  
-         String(bj.getSeconds()).padStart(2,'0');  
-}  
-document.write(getBJTime());  
-setInterval(()=>{document.body.innerText=getBJTime()},1000);  
-</script>  
-</body>  
-</html>  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Beijing Time</title>
+</head>
+<body>
+    <pre id="t"></pre>
+    <script>
+        function u() {
+            const d = new Date();
+            const t = new Date(d.getTime() + 8*3600*1000);
+            document.getElementById('t').textContent = t.toISOString().replace('T',' ').slice(0,19);
+        }
+        u();
+        setInterval(u,1000);
+    </script>
+</body>
+</html>
