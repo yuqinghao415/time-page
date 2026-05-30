@@ -1,6 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json({
-    message: "Hello from Vercel!",
-    time: new Date().toLocaleString()
+    status: "success",
+    message: "接口通了！",
+    serverTime: new Date().toISOString()
   });
 }
