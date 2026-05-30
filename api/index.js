@@ -58,6 +58,12 @@ united till the final word</p>
     </html>
   `;
 
+  // 强制禁用所有缓存的魔法指令
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.setHeader('Surrogate-Control', 'no-store');
+
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.status(200).send(html);
 }
