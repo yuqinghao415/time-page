@@ -146,10 +146,9 @@ export default function handler(req, res) {
 </body>
 </html>`;
 
-  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
-  res.setHeader('Pragma', 'no-cache');
-  res.setHeader('Expires', '0');
-  res.setHeader('Surrogate-Control', 'no-store');
+  // Keep a short browser cache and a five-minute CDN cache so AI readers can
+  // retrieve a stable copy without making the displayed time too stale.
+  res.setHeader('Cache-Control', 'public, max-age=60, s-maxage=300, stale-while-revalidate=3600');
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('X-Robots-Tag', 'index, follow');
   res.status(200).send(finalHtml);
