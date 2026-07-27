@@ -9,6 +9,13 @@ export default function handler(req, res) {
   ].join('-') + ` ${pad(beijingTime.getUTCHours())}:${pad(beijingTime.getUTCMinutes())}:${pad(beijingTime.getUTCSeconds())}`;
 
   const { key } = req.query;
+
+  if (key === 'myD' && (Object.hasOwn(req.query, '_t') || Object.hasOwn(req.query, 't'))) {
+    res.setHeader('Cache-Control', 'public, max-age=300');
+    res.redirect(308, '/letter-for-d');
+    return;
+  }
+
   let htmlContent;
 
   if (key === 'myD') {
