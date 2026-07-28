@@ -44,17 +44,9 @@ p {
   text-align: justify;
 }
 
-.poem {
+.ending {
   margin-top: 30px;
-  padding: 20px;
-  line-height: 1.9;
   text-align: left;
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  color: #555;
-  background: #faf7f7;
-  border-left: 3px solid #d7b7b7;
-  border-radius: 8px;
 }
 
 @media (max-width: 520px) {

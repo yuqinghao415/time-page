@@ -5,10 +5,6 @@
       "destination": "/api/robots"
     },
     {
-      "source": "/letter-for-d",
-      "destination": "/api?key=myD"
-    },
-    {
       "source": "/letter",
       "destination": "/api"
     }
